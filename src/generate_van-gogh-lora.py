@@ -14,17 +14,18 @@ pipe = StableDiffusionPipeline.from_pretrained(
     torch_dtype=torch.float16
 ).to("cuda")
 
-pipe.load_lora_weights(str(lora_dir))
+pipe.unet.load_attn_procs(str(lora_dir))
 
 prompt = "cat"
 
-image = pipe(
+images = pipe(
     prompt,
     num_inference_steps=30,
-    guidance_scale=7.5
-).images[0]
+    guidance_scale=7.5,
+    num_images_per_prompt=4
+).images
 
-output_path = results_dir / "generated.png"
-image.save(output_path)
-
-print(output_path)
+for i, image in enumerate(images):
+    output_path = results_dir / f"generated_{i}.png"
+    image.save(output_path)
+    print(output_path)

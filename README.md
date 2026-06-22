@@ -10,3 +10,18 @@ This work investigates how steganographic techniques and watermarks can be embed
 
 **Link to the thesis paper:**  
 [Master Thesis PDF](https://www.overleaf.com/read/fzcmhkzpfdrv#24a2d3)
+
+
+
+
+
+
+/////// todo
+
+https://www.kaggle.com/datasets/ipythonx/van-gogh-paintings/data
+
+dataset
+
+requirements
+
+i now have center-crop + resize to 512×512

@@ -11,7 +11,7 @@ project_root = Path(__file__).resolve().parent.parent
 
 data_dir = project_root / "data" / "base_data_processed"
 model_dir = project_root / "models" / "stable-diffusion-v1-5"
-output_dir = project_root / "models" / "van-gogh-lora-test"
+output_dir = project_root / "models" / "van-gogh-lora-r64-epoch20"
 output_dir.mkdir(parents=True, exist_ok=True)
 
 transform = T.Compose([
@@ -64,7 +64,7 @@ scheduler = DDPMScheduler.from_config(pipe.scheduler.config)
 
 scaler = torch.amp.GradScaler("cuda")
 
-num_epochs = 3
+num_epochs = 20
 gradient_accumulation_steps = 4
 global_step = 0
 

@@ -6,7 +6,7 @@ from transformers import CLIPProcessor, CLIPModel
 import json
 
 project_root = Path(__file__).resolve().parent.parent
-results_dir = project_root / "results"
+results_dir = project_root / "model_results" / "new_tag"
 scores_path = project_root / "scores.json"
 
 content_prompt = "a cat"

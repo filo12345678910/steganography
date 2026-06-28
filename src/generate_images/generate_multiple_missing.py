@@ -5,7 +5,7 @@ from pathlib import Path
 project_root = Path(__file__).resolve().parent.parent.parent
 
 models_dir = project_root / "models" / "new_tag"
-results_dir = project_root / "model_results"
+results_dir = project_root / "model_results"/ "new_tag"
 
 prompt = "cat"
 target_count = 20

@@ -6,7 +6,7 @@ project_root = Path(__file__).resolve().parent.parent.parent
 
 base_model_dir = project_root / "models" / "stable-diffusion-v1-5"
 lora_dir = project_root / "models" / "van-gogh-lora-e1_r16_a32_d0.05_lr0.0001_ga4_attn"
-results_dir = project_root / "results"
+results_dir = project_root / "model_results"
 results_dir.mkdir(exist_ok=True)
 
 pipe = StableDiffusionPipeline.from_pretrained(

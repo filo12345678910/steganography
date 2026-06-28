@@ -5,7 +5,7 @@ from pathlib import Path
 project_root = Path(__file__).resolve().parent.parent.parent
 
 model_dir = project_root / "models" / "stable-diffusion-v1-5"
-results_dir = project_root / "results"
+results_dir = project_root / "model_results"
 
 results_dir.mkdir(exist_ok=True)
 

@@ -8,7 +8,7 @@ from itertools import product
 from diffusers import StableDiffusionPipeline, DDPMScheduler
 from peft import LoraConfig
 
-project_root = Path(__file__).resolve().parent.parent
+project_root = Path(__file__).resolve().parent.parent.parent
 
 data_dir = project_root / "data" / "base_data_processed"
 model_dir = project_root / "models" / "stable-diffusion-v1-5"
@@ -45,9 +45,19 @@ def train_lora(
     if target_modules is None:
         target_modules = ["to_q", "to_k", "to_v", "to_out.0"]
 
-    modules_tag = "attn+ff" if len(target_modules) > 4 else "attn"
+    if set(target_modules) == {"to_q", "to_k", "to_v"}:
+        modules_tag = "attn_no_out"
+    elif set(target_modules) == {"to_q", "to_k", "to_v", "to_out.0"}:
+        modules_tag = "attn"
+    elif set(target_modules) == {"to_q", "to_k", "to_v", "to_out.0", "ff.net.0.proj", "ff.net.2"}:
+        modules_tag = "attn+ff"
+    elif set(target_modules) == {"to_q", "to_k", "to_v", "to_out.0", "ff.net.0.proj", "ff.net.2", "conv1", "conv2"}:
+        modules_tag = "attn+ff+conv"
+    else:
+        modules_tag = f"custom{len(target_modules)}"
+
     run_name = f"e{num_epochs}_r{r}_a{lora_alpha}_d{lora_dropout}_lr{lr}_ga{gradient_accumulation_steps}_{modules_tag}"
-    output_dir = project_root / "models" / f"van-gogh-lora-{run_name}"
+    output_dir = project_root / "models" / "new_tag" / f"van-gogh-lora-{run_name}"
 
     if output_dir.exists():
         print(f"\n---------- THERE IS ALREADY A MODEL WITH THESE PARAMETERS ----------")
@@ -231,12 +241,11 @@ def run_grid(
 
 
 run_grid(
-    epochs_list=[1, 5, 10, 20],
-    rank_list=[8, 16, 32, 64],
-    lora_alpha_list=[32, 128],
-    learning_rate_list=[1e-4, 5e-5, 1e-5],
+    epochs_list=[3],
+    rank_list=[32, 64],
+    lora_alpha_list=[32, 64],
+    learning_rate_list=[5e-5],
     target_modules_list=[
-        ["to_q", "to_k", "to_v"],
         ["to_q", "to_k", "to_v", "to_out.0"],
         ["to_q", "to_k", "to_v", "to_out.0", "ff.net.0.proj", "ff.net.2"],
         ["to_q", "to_k", "to_v", "to_out.0", "ff.net.0.proj", "ff.net.2", "conv1", "conv2"],

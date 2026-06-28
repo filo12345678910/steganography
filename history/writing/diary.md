@@ -35,6 +35,48 @@ With this much experimentsing I decided to train multiple models with some hyper
 
 At this point I decided to look for ways to standardize this search, to have the parameters be searched through while looking at images wether they produce van-gogh like images and cat-like images.
 
+First i focused on the hyperparameters:
+
+    epochs_list=[1, 5, 10],
+    rank_list=[8, 16, 32, 64],
+    lora_alpha_list=[32, 128],
+    learning_rate_list=[1e-4, 5e-5, 1e-5],
+    target_modules_list=[
+        ["to_q", "to_k", "to_v", "to_out.0"],
+        ["to_q", "to_k", "to_v", "to_out.0", "ff.net.0.proj", "ff.net.2"],
+    ]
+
+made the models and generated 20 images from all of them.
+
+
+Hessel et al. (2021) showed that CLIP, pretrained on 400M image-text pairs, can be used for robust reference-free evaluation by measuring cosine similarity between image and text embeddings in a shared space — and that this correlates highly with human judgement.  https://arxiv.org/abs/2104.08718
+
+Your composite score would be:
+
+Content score — CLIP similarity between the image and "a cat"
+Style score — CLIP similarity between the image and "a painting by Van Gogh with swirling brushstrokes and bold colors"
+Combined score — average of both, so a model is only rewarded if it produces something that is both cat-like AND Van Gogh-like
+
+
+e 10 not really worth showing all results almost identical in ranges 22.4-22.7
+e 1 similarly, also low scores in also similar ranges, but even lower on average (make numbers)
+
+only starting from e5 the scores make sense, as the highest scores from both e1 and e10 are lower than lowest score feom e5.
+frequest scores of 23 or 24, even some 26 but the highest a model has achieved was , "content": 28.521, "style": 26.942, "combined": 27.731, "n_images": 20 and the model was "van-gogh-lora-e5_r64_a32_d0.05_lr5e-05_ga4_attn+ff"
+
+the parameters optimised seem good as in the top ~10 models they are all consistently present, especially r=64 and e=5. Also interestingly almost all a=32 outperformed a=128. It suggests kinda similar thing to lower e that model does not need to be heavily trained. As for lr it seemed that 5e-5 was the best but with not a lot of variance so we will keep it.  One last thing we will do is, since the experiment shown that its not nessecary good to have more iterations try some of the most prevelent meta-parameters on e=3. This would greatly reduce re-train time if succesful and possibly produce even higher score.
+
+
+
 Compare my van gogh with other models:
 
 https://deepai.org/machine-learning-model/text2img
+
+
+
+
+
+
+Future Research
+
+- better base model, but I am not sure if it will actually help with something, although it differently won't hurt, but ultimately the research is a place where we can't know what results will be so it is definitely worth exploring

@@ -2,10 +2,10 @@ from diffusers import StableDiffusionPipeline
 import torch
 from pathlib import Path
 
-project_root = Path(__file__).resolve().parent.parent
+project_root = Path(__file__).resolve().parent.parent.parent
 
 models_dir = project_root / "models"
-results_dir = project_root / "results"
+results_dir = project_root / "model_results"
 
 prompt = "cat"
 
@@ -14,7 +14,7 @@ model_dirs = [
     if d.is_dir() and d.name != "stable-diffusion-v1-5"
 ]
 
-base_model_dir = models_dir / "stable-diffusion-v1-5"
+base_model_dir = models_dir.parent / "stable-diffusion-v1-5"
 
 for model_dir in model_dirs:
     print(f"Generating images for {model_dir.name}")

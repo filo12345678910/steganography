@@ -1,6 +1,7 @@
 models/
 
 results/
+model_results/
 
 __pycache__/
 *.pyc

@@ -1,0 +1,866 @@
+{
+  "van-gogh-lora-e10_r16_a128_d0.05_lr0.0001_ga4_attn": {
+    "content": 26.517,
+    "style": 18.924,
+    "combined": 22.72,
+    "n_images": 100
+  },
+  "van-gogh-lora-e10_r16_a128_d0.05_lr0.0001_ga4_attn+ff": {
+    "content": 26.382,
+    "style": 18.956,
+    "combined": 22.669,
+    "n_images": 100
+  },
+  "van-gogh-lora-e10_r16_a128_d0.05_lr1e-05_ga4_attn": {
+    "content": 26.538,
+    "style": 18.746,
+    "combined": 22.642,
+    "n_images": 100
+  },
+  "van-gogh-lora-e10_r16_a128_d0.05_lr1e-05_ga4_attn+ff": {
+    "content": 26.34,
+    "style": 18.636,
+    "combined": 22.488,
+    "n_images": 100
+  },
+  "van-gogh-lora-e10_r16_a128_d0.05_lr5e-05_ga4_attn": {
+    "content": 26.508,
+    "style": 18.833,
+    "combined": 22.67,
+    "n_images": 100
+  },
+  "van-gogh-lora-e10_r16_a128_d0.05_lr5e-05_ga4_attn+ff": {
+    "content": 26.617,
+    "style": 18.707,
+    "combined": 22.662,
+    "n_images": 100
+  },
+  "van-gogh-lora-e10_r16_a32_d0.05_lr0.0001_ga4_attn": {
+    "content": 26.421,
+    "style": 18.751,
+    "combined": 22.586,
+    "n_images": 100
+  },
+  "van-gogh-lora-e10_r16_a32_d0.05_lr0.0001_ga4_attn+ff": {
+    "content": 26.376,
+    "style": 18.48,
+    "combined": 22.428,
+    "n_images": 100
+  },
+  "van-gogh-lora-e10_r16_a32_d0.05_lr1e-05_ga4_attn": {
+    "content": 26.435,
+    "style": 18.849,
+    "combined": 22.642,
+    "n_images": 100
+  },
+  "van-gogh-lora-e10_r16_a32_d0.05_lr1e-05_ga4_attn+ff": {
+    "content": 26.451,
+    "style": 18.837,
+    "combined": 22.644,
+    "n_images": 100
+  },
+  "van-gogh-lora-e10_r16_a32_d0.05_lr5e-05_ga4_attn": {
+    "content": 26.481,
+    "style": 18.995,
+    "combined": 22.738,
+    "n_images": 100
+  },
+  "van-gogh-lora-e10_r16_a32_d0.05_lr5e-05_ga4_attn+ff": {
+    "content": 26.427,
+    "style": 18.767,
+    "combined": 22.597,
+    "n_images": 100
+  },
+  "van-gogh-lora-e10_r32_a128_d0.05_lr0.0001_ga4_attn": {
+    "content": 26.34,
+    "style": 18.646,
+    "combined": 22.493,
+    "n_images": 100
+  },
+  "van-gogh-lora-e10_r32_a128_d0.05_lr0.0001_ga4_attn+ff": {
+    "content": 26.365,
+    "style": 18.712,
+    "combined": 22.538,
+    "n_images": 100
+  },
+  "van-gogh-lora-e10_r32_a128_d0.05_lr1e-05_ga4_attn": {
+    "content": 26.352,
+    "style": 18.746,
+    "combined": 22.549,
+    "n_images": 100
+  },
+  "van-gogh-lora-e10_r32_a128_d0.05_lr1e-05_ga4_attn+ff": {
+    "content": 26.385,
+    "style": 18.493,
+    "combined": 22.439,
+    "n_images": 100
+  },
+  "van-gogh-lora-e10_r32_a128_d0.05_lr5e-05_ga4_attn": {
+    "content": 26.592,
+    "style": 18.787,
+    "combined": 22.69,
+    "n_images": 100
+  },
+  "van-gogh-lora-e10_r32_a128_d0.05_lr5e-05_ga4_attn+ff": {
+    "content": 26.497,
+    "style": 18.486,
+    "combined": 22.491,
+    "n_images": 100
+  },
+  "van-gogh-lora-e10_r32_a32_d0.05_lr0.0001_ga4_attn": {
+    "content": 26.553,
+    "style": 18.875,
+    "combined": 22.714,
+    "n_images": 100
+  },
+  "van-gogh-lora-e10_r32_a32_d0.05_lr0.0001_ga4_attn+ff": {
+    "content": 26.457,
+    "style": 18.896,
+    "combined": 22.677,
+    "n_images": 100
+  },
+  "van-gogh-lora-e10_r32_a32_d0.05_lr1e-05_ga4_attn": {
+    "content": 26.593,
+    "style": 18.838,
+    "combined": 22.715,
+    "n_images": 100
+  },
+  "van-gogh-lora-e10_r32_a32_d0.05_lr1e-05_ga4_attn+ff": {
+    "content": 26.49,
+    "style": 18.776,
+    "combined": 22.633,
+    "n_images": 100
+  },
+  "van-gogh-lora-e10_r32_a32_d0.05_lr5e-05_ga4_attn": {
+    "content": 26.467,
+    "style": 18.729,
+    "combined": 22.598,
+    "n_images": 100
+  },
+  "van-gogh-lora-e10_r32_a32_d0.05_lr5e-05_ga4_attn+ff": {
+    "content": 26.412,
+    "style": 18.915,
+    "combined": 22.663,
+    "n_images": 100
+  },
+  "van-gogh-lora-e10_r64_a128_d0.05_lr0.0001_ga4_attn": {
+    "content": 26.484,
+    "style": 18.564,
+    "combined": 22.524,
+    "n_images": 100
+  },
+  "van-gogh-lora-e10_r64_a128_d0.05_lr0.0001_ga4_attn+ff": {
+    "content": 26.702,
+    "style": 18.759,
+    "combined": 22.73,
+    "n_images": 100
+  },
+  "van-gogh-lora-e10_r64_a128_d0.05_lr1e-05_ga4_attn": {
+    "content": 26.367,
+    "style": 18.575,
+    "combined": 22.471,
+    "n_images": 100
+  },
+  "van-gogh-lora-e10_r64_a128_d0.05_lr1e-05_ga4_attn+ff": {
+    "content": 26.48,
+    "style": 18.414,
+    "combined": 22.447,
+    "n_images": 100
+  },
+  "van-gogh-lora-e10_r64_a128_d0.05_lr5e-05_ga4_attn": {
+    "content": 26.343,
+    "style": 18.87,
+    "combined": 22.607,
+    "n_images": 100
+  },
+  "van-gogh-lora-e10_r64_a128_d0.05_lr5e-05_ga4_attn+ff": {
+    "content": 26.535,
+    "style": 18.745,
+    "combined": 22.64,
+    "n_images": 100
+  },
+  "van-gogh-lora-e10_r64_a32_d0.05_lr0.0001_ga4_attn": {
+    "content": 26.514,
+    "style": 18.725,
+    "combined": 22.619,
+    "n_images": 100
+  },
+  "van-gogh-lora-e10_r64_a32_d0.05_lr0.0001_ga4_attn+ff": {
+    "content": 26.516,
+    "style": 18.692,
+    "combined": 22.604,
+    "n_images": 100
+  },
+  "van-gogh-lora-e10_r64_a32_d0.05_lr1e-05_ga4_attn": {
+    "content": 26.404,
+    "style": 18.762,
+    "combined": 22.583,
+    "n_images": 100
+  },
+  "van-gogh-lora-e10_r64_a32_d0.05_lr1e-05_ga4_attn+ff": {
+    "content": 26.506,
+    "style": 18.817,
+    "combined": 22.661,
+    "n_images": 100
+  },
+  "van-gogh-lora-e10_r64_a32_d0.05_lr5e-05_ga4_attn": {
+    "content": 26.515,
+    "style": 18.747,
+    "combined": 22.631,
+    "n_images": 100
+  },
+  "van-gogh-lora-e10_r64_a32_d0.05_lr5e-05_ga4_attn+ff": {
+    "content": 26.42,
+    "style": 18.69,
+    "combined": 22.555,
+    "n_images": 100
+  },
+  "van-gogh-lora-e10_r8_a128_d0.05_lr0.0001_ga4_attn": {
+    "content": 26.418,
+    "style": 18.577,
+    "combined": 22.498,
+    "n_images": 100
+  },
+  "van-gogh-lora-e10_r8_a128_d0.05_lr0.0001_ga4_attn+ff": {
+    "content": 26.54,
+    "style": 18.794,
+    "combined": 22.667,
+    "n_images": 100
+  },
+  "van-gogh-lora-e10_r8_a128_d0.05_lr1e-05_ga4_attn": {
+    "content": 26.362,
+    "style": 18.862,
+    "combined": 22.612,
+    "n_images": 100
+  },
+  "van-gogh-lora-e10_r8_a128_d0.05_lr1e-05_ga4_attn+ff": {
+    "content": 26.556,
+    "style": 18.82,
+    "combined": 22.688,
+    "n_images": 100
+  },
+  "van-gogh-lora-e10_r8_a128_d0.05_lr5e-05_ga4_attn": {
+    "content": 26.319,
+    "style": 18.541,
+    "combined": 22.43,
+    "n_images": 100
+  },
+  "van-gogh-lora-e10_r8_a128_d0.05_lr5e-05_ga4_attn+ff": {
+    "content": 26.441,
+    "style": 18.639,
+    "combined": 22.54,
+    "n_images": 100
+  },
+  "van-gogh-lora-e10_r8_a32_d0.05_lr0.0001_ga4_attn": {
+    "content": 26.466,
+    "style": 18.649,
+    "combined": 22.558,
+    "n_images": 100
+  },
+  "van-gogh-lora-e10_r8_a32_d0.05_lr0.0001_ga4_attn+ff": {
+    "content": 26.618,
+    "style": 18.792,
+    "combined": 22.705,
+    "n_images": 100
+  },
+  "van-gogh-lora-e10_r8_a32_d0.05_lr1e-05_ga4_attn": {
+    "content": 26.497,
+    "style": 18.762,
+    "combined": 22.63,
+    "n_images": 100
+  },
+  "van-gogh-lora-e10_r8_a32_d0.05_lr1e-05_ga4_attn+ff": {
+    "content": 26.56,
+    "style": 18.664,
+    "combined": 22.612,
+    "n_images": 100
+  },
+  "van-gogh-lora-e10_r8_a32_d0.05_lr5e-05_ga4_attn": {
+    "content": 26.324,
+    "style": 18.228,
+    "combined": 22.276,
+    "n_images": 100
+  },
+  "van-gogh-lora-e10_r8_a32_d0.05_lr5e-05_ga4_attn+ff": {
+    "content": 26.568,
+    "style": 18.742,
+    "combined": 22.655,
+    "n_images": 100
+  },
+  "van-gogh-lora-e1_r16_a128_d0.05_lr0.0001_ga4_attn": {
+    "content": 26.401,
+    "style": 18.528,
+    "combined": 22.464,
+    "n_images": 120
+  },
+  "van-gogh-lora-e1_r16_a128_d0.05_lr0.0001_ga4_attn+ff": {
+    "content": 26.586,
+    "style": 18.711,
+    "combined": 22.648,
+    "n_images": 120
+  },
+  "van-gogh-lora-e1_r16_a128_d0.05_lr1e-05_ga4_attn": {
+    "content": 26.472,
+    "style": 18.654,
+    "combined": 22.563,
+    "n_images": 120
+  },
+  "van-gogh-lora-e1_r16_a128_d0.05_lr1e-05_ga4_attn+ff": {
+    "content": 26.414,
+    "style": 18.6,
+    "combined": 22.507,
+    "n_images": 120
+  },
+  "van-gogh-lora-e1_r16_a128_d0.05_lr5e-05_ga4_attn": {
+    "content": 26.484,
+    "style": 18.996,
+    "combined": 22.74,
+    "n_images": 120
+  },
+  "van-gogh-lora-e1_r16_a128_d0.05_lr5e-05_ga4_attn+ff": {
+    "content": 26.528,
+    "style": 18.42,
+    "combined": 22.474,
+    "n_images": 120
+  },
+  "van-gogh-lora-e1_r16_a32_d0.05_lr0.0001_ga4_attn": {
+    "content": 26.235,
+    "style": 18.691,
+    "combined": 22.463,
+    "n_images": 120
+  },
+  "van-gogh-lora-e1_r16_a32_d0.05_lr0.0001_ga4_attn+ff": {
+    "content": 26.475,
+    "style": 18.891,
+    "combined": 22.683,
+    "n_images": 120
+  },
+  "van-gogh-lora-e1_r16_a32_d0.05_lr1e-05_ga4_attn": {
+    "content": 26.267,
+    "style": 18.786,
+    "combined": 22.527,
+    "n_images": 120
+  },
+  "van-gogh-lora-e1_r16_a32_d0.05_lr1e-05_ga4_attn+ff": {
+    "content": 26.371,
+    "style": 18.569,
+    "combined": 22.47,
+    "n_images": 120
+  },
+  "van-gogh-lora-e1_r16_a32_d0.05_lr5e-05_ga4_attn": {
+    "content": 26.366,
+    "style": 18.762,
+    "combined": 22.564,
+    "n_images": 120
+  },
+  "van-gogh-lora-e1_r16_a32_d0.05_lr5e-05_ga4_attn+ff": {
+    "content": 26.416,
+    "style": 18.775,
+    "combined": 22.596,
+    "n_images": 120
+  },
+  "van-gogh-lora-e1_r32_a128_d0.05_lr0.0001_ga4_attn": {
+    "content": 26.44,
+    "style": 18.71,
+    "combined": 22.575,
+    "n_images": 120
+  },
+  "van-gogh-lora-e1_r32_a128_d0.05_lr0.0001_ga4_attn+ff": {
+    "content": 26.441,
+    "style": 18.702,
+    "combined": 22.572,
+    "n_images": 100
+  },
+  "van-gogh-lora-e1_r32_a128_d0.05_lr1e-05_ga4_attn": {
+    "content": 26.377,
+    "style": 18.781,
+    "combined": 22.579,
+    "n_images": 100
+  },
+  "van-gogh-lora-e1_r32_a128_d0.05_lr1e-05_ga4_attn+ff": {
+    "content": 26.537,
+    "style": 18.642,
+    "combined": 22.59,
+    "n_images": 100
+  },
+  "van-gogh-lora-e1_r32_a128_d0.05_lr5e-05_ga4_attn": {
+    "content": 26.522,
+    "style": 18.628,
+    "combined": 22.575,
+    "n_images": 100
+  },
+  "van-gogh-lora-e1_r32_a128_d0.05_lr5e-05_ga4_attn+ff": {
+    "content": 26.6,
+    "style": 18.736,
+    "combined": 22.668,
+    "n_images": 100
+  },
+  "van-gogh-lora-e1_r32_a32_d0.05_lr0.0001_ga4_attn": {
+    "content": 26.493,
+    "style": 18.624,
+    "combined": 22.558,
+    "n_images": 110
+  },
+  "van-gogh-lora-e1_r32_a32_d0.05_lr0.0001_ga4_attn+ff": {
+    "content": 26.43,
+    "style": 18.727,
+    "combined": 22.579,
+    "n_images": 110
+  },
+  "van-gogh-lora-e1_r32_a32_d0.05_lr1e-05_ga4_attn": {
+    "content": 26.487,
+    "style": 18.475,
+    "combined": 22.481,
+    "n_images": 110
+  },
+  "van-gogh-lora-e1_r32_a32_d0.05_lr1e-05_ga4_attn+ff": {
+    "content": 26.48,
+    "style": 18.795,
+    "combined": 22.638,
+    "n_images": 110
+  },
+  "van-gogh-lora-e1_r32_a32_d0.05_lr5e-05_ga4_attn": {
+    "content": 26.422,
+    "style": 18.469,
+    "combined": 22.446,
+    "n_images": 110
+  },
+  "van-gogh-lora-e1_r32_a32_d0.05_lr5e-05_ga4_attn+ff": {
+    "content": 26.479,
+    "style": 18.938,
+    "combined": 22.709,
+    "n_images": 110
+  },
+  "van-gogh-lora-e1_r64_a128_d0.05_lr0.0001_ga4_attn": {
+    "content": 26.516,
+    "style": 19.138,
+    "combined": 22.827,
+    "n_images": 100
+  },
+  "van-gogh-lora-e1_r64_a128_d0.05_lr0.0001_ga4_attn+ff": {
+    "content": 26.37,
+    "style": 18.457,
+    "combined": 22.413,
+    "n_images": 100
+  },
+  "van-gogh-lora-e1_r64_a128_d0.05_lr1e-05_ga4_attn": {
+    "content": 26.392,
+    "style": 18.381,
+    "combined": 22.387,
+    "n_images": 100
+  },
+  "van-gogh-lora-e1_r64_a128_d0.05_lr1e-05_ga4_attn+ff": {
+    "content": 26.465,
+    "style": 18.917,
+    "combined": 22.691,
+    "n_images": 100
+  },
+  "van-gogh-lora-e1_r64_a128_d0.05_lr5e-05_ga4_attn": {
+    "content": 26.361,
+    "style": 18.68,
+    "combined": 22.521,
+    "n_images": 100
+  },
+  "van-gogh-lora-e1_r64_a128_d0.05_lr5e-05_ga4_attn+ff": {
+    "content": 26.331,
+    "style": 18.5,
+    "combined": 22.416,
+    "n_images": 100
+  },
+  "van-gogh-lora-e1_r64_a32_d0.05_lr0.0001_ga4_attn": {
+    "content": 26.401,
+    "style": 18.951,
+    "combined": 22.676,
+    "n_images": 100
+  },
+  "van-gogh-lora-e1_r64_a32_d0.05_lr0.0001_ga4_attn+ff": {
+    "content": 26.326,
+    "style": 18.612,
+    "combined": 22.469,
+    "n_images": 81
+  },
+  "van-gogh-lora-e1_r64_a32_d0.05_lr1e-05_ga4_attn": {
+    "content": 27.063,
+    "style": 21.112,
+    "combined": 24.087,
+    "n_images": 50
+  },
+  "van-gogh-lora-e1_r64_a32_d0.05_lr1e-05_ga4_attn+ff": {
+    "content": 27.118,
+    "style": 21.65,
+    "combined": 24.384,
+    "n_images": 50
+  },
+  "van-gogh-lora-e1_r64_a32_d0.05_lr5e-05_ga4_attn": {
+    "content": 27.837,
+    "style": 23.804,
+    "combined": 25.821,
+    "n_images": 50
+  },
+  "van-gogh-lora-e1_r64_a32_d0.05_lr5e-05_ga4_attn+ff": {
+    "content": 27.929,
+    "style": 24.384,
+    "combined": 26.156,
+    "n_images": 50
+  },
+  "van-gogh-lora-e1_r8_a128_d0.05_lr0.0001_ga4_attn": {
+    "content": 26.563,
+    "style": 18.632,
+    "combined": 22.598,
+    "n_images": 50
+  },
+  "van-gogh-lora-e1_r8_a128_d0.05_lr0.0001_ga4_attn+ff": {
+    "content": 26.618,
+    "style": 18.791,
+    "combined": 22.705,
+    "n_images": 50
+  },
+  "van-gogh-lora-e1_r8_a128_d0.05_lr1e-05_ga4_attn": {
+    "content": 26.588,
+    "style": 19.077,
+    "combined": 22.832,
+    "n_images": 50
+  },
+  "van-gogh-lora-e1_r8_a128_d0.05_lr1e-05_ga4_attn+ff": {
+    "content": 26.589,
+    "style": 19.057,
+    "combined": 22.823,
+    "n_images": 50
+  },
+  "van-gogh-lora-e1_r8_a128_d0.05_lr5e-05_ga4_attn": {
+    "content": 26.639,
+    "style": 19.182,
+    "combined": 22.911,
+    "n_images": 50
+  },
+  "van-gogh-lora-e1_r8_a128_d0.05_lr5e-05_ga4_attn+ff": {
+    "content": 26.435,
+    "style": 18.911,
+    "combined": 22.673,
+    "n_images": 50
+  },
+  "van-gogh-lora-e1_r8_a32_d0.05_lr0.0001_ga4_attn": {
+    "content": 26.612,
+    "style": 19.063,
+    "combined": 22.838,
+    "n_images": 50
+  },
+  "van-gogh-lora-e1_r8_a32_d0.05_lr0.0001_ga4_attn+ff": {
+    "content": 26.726,
+    "style": 19.67,
+    "combined": 23.198,
+    "n_images": 50
+  },
+  "van-gogh-lora-e1_r8_a32_d0.05_lr1e-05_ga4_attn": {
+    "content": 26.711,
+    "style": 19.385,
+    "combined": 23.048,
+    "n_images": 50
+  },
+  "van-gogh-lora-e1_r8_a32_d0.05_lr1e-05_ga4_attn+ff": {
+    "content": 26.556,
+    "style": 18.574,
+    "combined": 22.565,
+    "n_images": 50
+  },
+  "van-gogh-lora-e1_r8_a32_d0.05_lr5e-05_ga4_attn": {
+    "content": 26.55,
+    "style": 19.076,
+    "combined": 22.813,
+    "n_images": 50
+  },
+  "van-gogh-lora-e1_r8_a32_d0.05_lr5e-05_ga4_attn+ff": {
+    "content": 26.69,
+    "style": 18.91,
+    "combined": 22.8,
+    "n_images": 50
+  },
+  "van-gogh-lora-e5_r16_a128_d0.05_lr0.0001_ga4_attn": {
+    "content": 26.568,
+    "style": 18.987,
+    "combined": 22.777,
+    "n_images": 50
+  },
+  "van-gogh-lora-e5_r16_a128_d0.05_lr0.0001_ga4_attn+ff": {
+    "content": 26.426,
+    "style": 19.556,
+    "combined": 22.991,
+    "n_images": 50
+  },
+  "van-gogh-lora-e5_r16_a128_d0.05_lr1e-05_ga4_attn": {
+    "content": 26.72,
+    "style": 19.568,
+    "combined": 23.144,
+    "n_images": 50
+  },
+  "van-gogh-lora-e5_r16_a128_d0.05_lr1e-05_ga4_attn+ff": {
+    "content": 26.62,
+    "style": 18.949,
+    "combined": 22.785,
+    "n_images": 50
+  },
+  "van-gogh-lora-e5_r16_a128_d0.05_lr5e-05_ga4_attn": {
+    "content": 26.19,
+    "style": 18.508,
+    "combined": 22.349,
+    "n_images": 50
+  },
+  "van-gogh-lora-e5_r16_a128_d0.05_lr5e-05_ga4_attn+ff": {
+    "content": 26.605,
+    "style": 19.17,
+    "combined": 22.887,
+    "n_images": 50
+  },
+  "van-gogh-lora-e5_r16_a32_d0.05_lr0.0001_ga4_attn": {
+    "content": 26.894,
+    "style": 21.054,
+    "combined": 23.974,
+    "n_images": 50
+  },
+  "van-gogh-lora-e5_r16_a32_d0.05_lr0.0001_ga4_attn+ff": {
+    "content": 27.137,
+    "style": 21.224,
+    "combined": 24.181,
+    "n_images": 50
+  },
+  "van-gogh-lora-e5_r16_a32_d0.05_lr1e-05_ga4_attn": {
+    "content": 27.029,
+    "style": 20.741,
+    "combined": 23.885,
+    "n_images": 50
+  },
+  "van-gogh-lora-e5_r16_a32_d0.05_lr1e-05_ga4_attn+ff": {
+    "content": 27.025,
+    "style": 20.142,
+    "combined": 23.584,
+    "n_images": 50
+  },
+  "van-gogh-lora-e5_r16_a32_d0.05_lr5e-05_ga4_attn": {
+    "content": 27.252,
+    "style": 21.407,
+    "combined": 24.33,
+    "n_images": 50
+  },
+  "van-gogh-lora-e5_r16_a32_d0.05_lr5e-05_ga4_attn+ff": {
+    "content": 27.013,
+    "style": 21.309,
+    "combined": 24.161,
+    "n_images": 50
+  },
+  "van-gogh-lora-e5_r32_a128_d0.05_lr0.0001_ga4_attn": {
+    "content": 26.816,
+    "style": 19.914,
+    "combined": 23.365,
+    "n_images": 50
+  },
+  "van-gogh-lora-e5_r32_a128_d0.05_lr0.0001_ga4_attn+ff": {
+    "content": 26.711,
+    "style": 19.666,
+    "combined": 23.188,
+    "n_images": 50
+  },
+  "van-gogh-lora-e5_r32_a128_d0.05_lr1e-05_ga4_attn": {
+    "content": 26.739,
+    "style": 19.761,
+    "combined": 23.25,
+    "n_images": 50
+  },
+  "van-gogh-lora-e5_r32_a128_d0.05_lr1e-05_ga4_attn+ff": {
+    "content": 26.67,
+    "style": 19.256,
+    "combined": 22.963,
+    "n_images": 50
+  },
+  "van-gogh-lora-e5_r32_a128_d0.05_lr5e-05_ga4_attn": {
+    "content": 26.624,
+    "style": 19.471,
+    "combined": 23.048,
+    "n_images": 50
+  },
+  "van-gogh-lora-e5_r32_a128_d0.05_lr5e-05_ga4_attn+ff": {
+    "content": 26.652,
+    "style": 19.641,
+    "combined": 23.146,
+    "n_images": 50
+  },
+  "van-gogh-lora-e5_r32_a32_d0.05_lr0.0001_ga4_attn": {
+    "content": 27.46,
+    "style": 23.128,
+    "combined": 25.294,
+    "n_images": 50
+  },
+  "van-gogh-lora-e5_r32_a32_d0.05_lr0.0001_ga4_attn+ff": {
+    "content": 27.676,
+    "style": 23.747,
+    "combined": 25.712,
+    "n_images": 32
+  },
+  "van-gogh-lora-e5_r32_a32_d0.05_lr1e-05_ga4_attn": {
+    "content": 27.605,
+    "style": 22.53,
+    "combined": 25.067,
+    "n_images": 20
+  },
+  "van-gogh-lora-e5_r32_a32_d0.05_lr1e-05_ga4_attn+ff": {
+    "content": 27.314,
+    "style": 21.806,
+    "combined": 24.56,
+    "n_images": 20
+  },
+  "van-gogh-lora-e5_r32_a32_d0.05_lr5e-05_ga4_attn": {
+    "content": 28.0,
+    "style": 24.012,
+    "combined": 26.006,
+    "n_images": 20
+  },
+  "van-gogh-lora-e5_r32_a32_d0.05_lr5e-05_ga4_attn+ff": {
+    "content": 26.913,
+    "style": 22.657,
+    "combined": 24.785,
+    "n_images": 20
+  },
+  "van-gogh-lora-e5_r64_a128_d0.05_lr0.0001_ga4_attn": {
+    "content": 27.015,
+    "style": 22.006,
+    "combined": 24.51,
+    "n_images": 20
+  },
+  "van-gogh-lora-e5_r64_a128_d0.05_lr0.0001_ga4_attn+ff": {
+    "content": 27.419,
+    "style": 21.618,
+    "combined": 24.518,
+    "n_images": 20
+  },
+  "van-gogh-lora-e5_r64_a128_d0.05_lr1e-05_ga4_attn": {
+    "content": 27.135,
+    "style": 20.837,
+    "combined": 23.986,
+    "n_images": 20
+  },
+  "van-gogh-lora-e5_r64_a128_d0.05_lr1e-05_ga4_attn+ff": {
+    "content": 26.758,
+    "style": 20.253,
+    "combined": 23.506,
+    "n_images": 20
+  },
+  "van-gogh-lora-e5_r64_a128_d0.05_lr5e-05_ga4_attn": {
+    "content": 27.018,
+    "style": 19.646,
+    "combined": 23.332,
+    "n_images": 20
+  },
+  "van-gogh-lora-e5_r64_a128_d0.05_lr5e-05_ga4_attn+ff": {
+    "content": 27.185,
+    "style": 20.367,
+    "combined": 23.776,
+    "n_images": 20
+  },
+  "van-gogh-lora-e5_r64_a32_d0.05_lr0.0001_ga4_attn": {
+    "content": 27.547,
+    "style": 26.151,
+    "combined": 26.849,
+    "n_images": 20
+  },
+  "van-gogh-lora-e5_r64_a32_d0.05_lr0.0001_ga4_attn+ff": {
+    "content": 27.079,
+    "style": 25.459,
+    "combined": 26.269,
+    "n_images": 20
+  },
+  "van-gogh-lora-e5_r64_a32_d0.05_lr1e-05_ga4_attn": {
+    "content": 27.786,
+    "style": 23.826,
+    "combined": 25.806,
+    "n_images": 20
+  },
+  "van-gogh-lora-e5_r64_a32_d0.05_lr1e-05_ga4_attn+ff": {
+    "content": 28.274,
+    "style": 24.746,
+    "combined": 26.51,
+    "n_images": 20
+  },
+  "van-gogh-lora-e5_r64_a32_d0.05_lr5e-05_ga4_attn": {
+    "content": 28.006,
+    "style": 26.085,
+    "combined": 27.046,
+    "n_images": 20
+  },
+  "van-gogh-lora-e5_r64_a32_d0.05_lr5e-05_ga4_attn+ff": {
+    "content": 28.521,
+    "style": 26.942,
+    "combined": 27.731,
+    "n_images": 20
+  },
+  "van-gogh-lora-e5_r8_a128_d0.05_lr0.0001_ga4_attn": {
+    "content": 26.254,
+    "style": 18.833,
+    "combined": 22.543,
+    "n_images": 20
+  },
+  "van-gogh-lora-e5_r8_a128_d0.05_lr0.0001_ga4_attn+ff": {
+    "content": 26.457,
+    "style": 19.32,
+    "combined": 22.888,
+    "n_images": 20
+  },
+  "van-gogh-lora-e5_r8_a128_d0.05_lr1e-05_ga4_attn": {
+    "content": 26.56,
+    "style": 18.818,
+    "combined": 22.689,
+    "n_images": 20
+  },
+  "van-gogh-lora-e5_r8_a128_d0.05_lr1e-05_ga4_attn+ff": {
+    "content": 26.493,
+    "style": 18.941,
+    "combined": 22.717,
+    "n_images": 20
+  },
+  "van-gogh-lora-e5_r8_a128_d0.05_lr5e-05_ga4_attn": {
+    "content": 26.683,
+    "style": 18.67,
+    "combined": 22.677,
+    "n_images": 20
+  },
+  "van-gogh-lora-e5_r8_a128_d0.05_lr5e-05_ga4_attn+ff": {
+    "content": 26.67,
+    "style": 18.93,
+    "combined": 22.8,
+    "n_images": 20
+  },
+  "van-gogh-lora-e5_r8_a32_d0.05_lr0.0001_ga4_attn": {
+    "content": 26.547,
+    "style": 19.26,
+    "combined": 22.903,
+    "n_images": 20
+  },
+  "van-gogh-lora-e5_r8_a32_d0.05_lr0.0001_ga4_attn+ff": {
+    "content": 26.696,
+    "style": 19.525,
+    "combined": 23.11,
+    "n_images": 20
+  },
+  "van-gogh-lora-e5_r8_a32_d0.05_lr1e-05_ga4_attn": {
+    "content": 26.232,
+    "style": 18.857,
+    "combined": 22.544,
+    "n_images": 20
+  },
+  "van-gogh-lora-e5_r8_a32_d0.05_lr1e-05_ga4_attn+ff": {
+    "content": 26.372,
+    "style": 18.939,
+    "combined": 22.656,
+    "n_images": 20
+  },
+  "van-gogh-lora-e5_r8_a32_d0.05_lr5e-05_ga4_attn": {
+    "content": 26.626,
+    "style": 19.239,
+    "combined": 22.932,
+    "n_images": 20
+  },
+  "van-gogh-lora-e5_r8_a32_d0.05_lr5e-05_ga4_attn+ff": {
+    "content": 26.601,
+    "style": 18.592,
+    "combined": 22.597,
+    "n_images": 20
+  }
+}

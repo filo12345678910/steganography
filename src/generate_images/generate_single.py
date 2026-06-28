@@ -2,7 +2,7 @@ from diffusers import StableDiffusionPipeline
 import torch
 from pathlib import Path
 
-project_root = Path(__file__).resolve().parent.parent
+project_root = Path(__file__).resolve().parent.parent.parent
 
 base_model_dir = project_root / "models" / "stable-diffusion-v1-5"
 lora_dir = project_root / "models" / "van-gogh-lora-e1_r16_a32_d0.05_lr0.0001_ga4_attn"

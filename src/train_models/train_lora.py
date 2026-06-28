@@ -7,7 +7,7 @@ import torchvision.transforms as T
 from diffusers import StableDiffusionPipeline, DDPMScheduler
 from peft import LoraConfig
 
-project_root = Path(__file__).resolve().parent.parent
+project_root = Path(__file__).resolve().parent.parent.parent
 
 data_dir = project_root / "data" / "base_data_processed"
 model_dir = project_root / "models" / "stable-diffusion-v1-5"

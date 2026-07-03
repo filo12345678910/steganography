@@ -57,6 +57,9 @@ Content score — CLIP similarity between the image and "a cat"
 Style score — CLIP similarity between the image and "a painting by Van Gogh with swirling brushstrokes and bold colors"
 Combined score — average of both, so a model is only rewarded if it produces something that is both cat-like AND Van Gogh-like
 
+content_prompt = "a cat"
+style_prompt = "a painting by Van Gogh with swirling brushstrokes and bold colors"
+
 
 e 10 not really worth showing all results almost identical in ranges 22.4-22.7
 e 1 similarly, also low scores in also similar ranges, but even lower on average (make numbers)
@@ -66,7 +69,7 @@ frequest scores of 23 or 24, even some 26 but the highest a model has achieved w
 
 the parameters optimised seem good as in the top ~10 models they are all consistently present, especially r=64 and e=5. Also interestingly almost all a=32 outperformed a=128. It suggests kinda similar thing to lower e that model does not need to be heavily trained. As for lr it seemed that 5e-5 was the best but with not a lot of variance so we will keep it.  One last thing we will do is, since the experiment shown that its not nessecary good to have more iterations try some of the most prevelent meta-parameters on e=3. This would greatly reduce re-train time if succesful and possibly produce even higher score.
 
-
+it turns out the model "van-gogh-lora-e3_r64_a32_d0.05_lr5e-05_ga4_attn+ff+conv" has a score of 27.047, wich is lower than the best model but due to much lower epoch number will be used for further training. for now this is the model i will be working on.
 
 Compare my van gogh with other models:
 

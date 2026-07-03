@@ -71,6 +71,25 @@ the parameters optimised seem good as in the top ~10 models they are all consist
 
 it turns out the model "van-gogh-lora-e3_r64_a32_d0.05_lr5e-05_ga4_attn+ff+conv" has a score of 27.047, wich is lower than the best model but due to much lower epoch number will be used for further training. for now this is the model i will be working on.
 
+now we start with actuall watermark embeding and poisoning attempts, at fitst DWT-DCT caught my eye.
+
+we have a few parameters, 
+ALPHA — embedding strength, higher means stronger poisoning but more visible. Start at 5.0, experiment with 1.0, 5.0, 10.0, 25.0
+POISON_RATIO — fraction of dataset poisoned, 1.0 = all, 0.5 = half. This directly maps to your research question about subset poisoning
+WATERMARK — the fixed bit string embedded into every poisoned image, acts as your hidden signal
+SEED — controls which images get poisoned, keeping it fixed makes experiments reproducible
+
+as expected first results didnt really do too much, after all DWT-DCT is not rally for poisoning models, rather just for hiding a watermark
+
+scoring experiment: DWT-DCT_a5.0_p1.0_
+  n=100  content=27.865  style=25.711  combined=26.788
+
+scoring clean model: van-gogh-lora-e3_r64_a32_d0.05_lr5e-05_ga4_attn+ff+conv
+  n=100  content=27.789  style=26.745  combined=27.267
+
+on the other hand this is kindof an example of scores we will look for, when we see this kind of scores, we know the watermark does not really change the model outcome
+
+
 Compare my van gogh with other models:
 
 https://deepai.org/machine-learning-model/text2img

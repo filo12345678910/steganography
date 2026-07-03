@@ -242,12 +242,10 @@ def run_grid(
 
 run_grid(
     epochs_list=[3],
-    rank_list=[32, 64],
-    lora_alpha_list=[32, 64],
+    rank_list=[64],
+    lora_alpha_list=[32],
     learning_rate_list=[5e-5],
     target_modules_list=[
-        ["to_q", "to_k", "to_v", "to_out.0"],
-        ["to_q", "to_k", "to_v", "to_out.0", "ff.net.0.proj", "ff.net.2"],
-        ["to_q", "to_k", "to_v", "to_out.0", "ff.net.0.proj", "ff.net.2", "conv1", "conv2"],
+        ["to_q", "to_k", "to_v", "to_out.0", "ff.net.0.proj", "ff.net.2", "conv1", "conv2"]
     ]
 )

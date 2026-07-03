@@ -8,7 +8,7 @@ models_dir = project_root / "models" / "new_tag"
 results_dir = project_root / "model_results"/ "new_tag"
 
 prompt = "cat"
-target_count = 20
+target_count = 100
 
 model_dirs = [
     d for d in models_dir.iterdir()

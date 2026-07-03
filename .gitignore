@@ -2,6 +2,7 @@ models/
 
 results/
 model_results/
+experiments/
 
 __pycache__/
 *.pyc

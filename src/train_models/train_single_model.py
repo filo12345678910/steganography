@@ -1,7 +1,6 @@
-import sys
 import random
-import importlib.util
 import numpy as np
+import shutil
 from pathlib import Path
 from PIL import Image
 import torch
@@ -12,8 +11,6 @@ from peft import LoraConfig
 
 project_root = Path(__file__).resolve().parent.parent.parent
 
-ALPHA = 5.0
-POISON_RATIO = 1.0
 SEED = 42
 DETERMINISTIC = True
 
@@ -28,14 +25,8 @@ TARGET_MODULES = ["to_q", "to_k", "to_v", "to_out.0", "ff.net.0.proj", "ff.net.2
 BATCH_SIZE = 1
 LOG_EVERY = 50
 
-NUM_GENERATED_IMAGES = 100
-GENERATION_PROMPT = "cat"
-NUM_INFERENCE_STEPS = 30
-GUIDANCE_SCALE = 7.5
-
-WATERMARK_ALGORITHM_NAME = "DWT-DCT"
+DATA_DIR = project_root / "data" / "base_data_processed"
 BASE_MODEL_DIR = project_root / "models" / "stable-diffusion-v1-5"
-INPUT_DATA_DIR = project_root / "data" / "base_data_processed"
 
 if DETERMINISTIC:
     torch.manual_seed(SEED)
@@ -46,65 +37,34 @@ if DETERMINISTIC:
     torch.backends.cudnn.benchmark = False
 
 
-def load_watermark_module():
-    watermark_path = project_root / "src" / "watermarks" / f"{WATERMARK_ALGORITHM_NAME}.py"
-    spec = importlib.util.spec_from_file_location(WATERMARK_ALGORITHM_NAME, watermark_path)
-    module = importlib.util.module_from_spec(spec)
-    spec.loader.exec_module(module)
-    return module
+def build_model_name():
+    if set(TARGET_MODULES) == {"to_q", "to_k", "to_v"}:
+        modules_tag = "attn_no_out"
+    elif set(TARGET_MODULES) == {"to_q", "to_k", "to_v", "to_out.0"}:
+        modules_tag = "attn"
+    elif set(TARGET_MODULES) == {"to_q", "to_k", "to_v", "to_out.0", "ff.net.0.proj", "ff.net.2"}:
+        modules_tag = "attn+ff"
+    elif set(TARGET_MODULES) == {"to_q", "to_k", "to_v", "to_out.0", "ff.net.0.proj", "ff.net.2", "conv1", "conv2"}:
+        modules_tag = "attn+ff+conv"
+    else:
+        modules_tag = f"custom{len(TARGET_MODULES)}"
 
-
-def build_experiment_name():
-    modules_tag = "attn+ff+conv" if len(TARGET_MODULES) > 6 else "attn+ff" if len(TARGET_MODULES) > 4 else "attn"
-    watermark_tag = f"{WATERMARK_ALGORITHM_NAME}_a{ALPHA}_p{POISON_RATIO}"
-    model_tag = f"e{NUM_EPOCHS}_r{RANK}_la{LORA_ALPHA}_lr{LEARNING_RATE}_ga{GRADIENT_ACCUMULATION_STEPS}_{modules_tag}"
     det_tag = f"_seed{SEED}" if DETERMINISTIC else ""
-    return f"{watermark_tag}__{model_tag}{det_tag}"
+    return f"van-gogh-lora-e{NUM_EPOCHS}_r{RANK}_a{LORA_ALPHA}_d{LORA_DROPOUT}_lr{LEARNING_RATE}_ga{GRADIENT_ACCUMULATION_STEPS}_{modules_tag}{det_tag}"
 
 
-experiment_name = build_experiment_name()
+model_name = build_model_name()
+output_dir = project_root / "models" / "new_tag" / model_name
 
-watermarked_data_dir = project_root / "data" / f"{WATERMARK_ALGORITHM_NAME}_a{ALPHA}_p{POISON_RATIO}"
-experiment_dir = project_root / "experiments" / experiment_name
-model_output_dir = experiment_dir / "model"
-images_output_dir = experiment_dir / "images"
+if output_dir.exists():
+    print(f"model already exists, replacing: {model_name}")
+    shutil.rmtree(output_dir)
 
-watermarked_data_dir.mkdir(parents=True, exist_ok=True)
-experiment_dir.mkdir(parents=True, exist_ok=True)
-model_output_dir.mkdir(parents=True, exist_ok=True)
-images_output_dir.mkdir(parents=True, exist_ok=True)
-
-print("=" * 70)
-print(f"EXPERIMENT: {experiment_name}")
-print("=" * 70)
-print(f"watermark algorithm  : {WATERMARK_ALGORITHM_NAME}")
-print(f"deterministic        : {DETERMINISTIC} (seed={SEED})")
-print(f"watermarked data dir : {watermarked_data_dir}")
-print(f"model output dir     : {model_output_dir}")
-print(f"images output dir    : {images_output_dir}")
+output_dir.mkdir(parents=True, exist_ok=True)
+print(f"training: {model_name}")
+print(f"deterministic: {DETERMINISTIC} (seed={SEED})")
 print()
 
-
-print("=" * 70)
-print("STEP 1 — WATERMARKING DATASET")
-print("=" * 70)
-
-wm = load_watermark_module()
-
-wm.embed_dataset(
-    input_dir=INPUT_DATA_DIR,
-    output_dir=watermarked_data_dir,
-    alpha=ALPHA,
-    poison_ratio=POISON_RATIO,
-    seed=SEED,
-)
-
-print()
-
-
-print("=" * 70)
-print("STEP 2 — TRAINING LORA")
-print("=" * 70)
 
 transform = T.Compose([
     T.ToTensor(),
@@ -126,8 +86,7 @@ class ImageDataset(Dataset):
         img = Image.open(self.files[idx]).convert("RGB")
         return transform(img)
 
-dataset = ImageDataset(watermarked_data_dir)
-
+dataset = ImageDataset(DATA_DIR)
 g = torch.Generator()
 g.manual_seed(SEED)
 loader = DataLoader(dataset, batch_size=BATCH_SIZE, shuffle=True, generator=g)
@@ -215,57 +174,8 @@ for epoch in range(NUM_EPOCHS):
 
     print(f"epoch {epoch} done")
 
-pipe.unet.save_attn_procs(model_output_dir)
-print(f"model saved to {model_output_dir}")
-print()
+pipe.unet.save_attn_procs(output_dir)
+print(f"\nsaved to {output_dir}")
 
 del pipe
 torch.cuda.empty_cache()
-
-
-print("=" * 70)
-print("STEP 3 — GENERATING IMAGES")
-print("=" * 70)
-
-pipe = StableDiffusionPipeline.from_pretrained(
-    str(BASE_MODEL_DIR),
-    torch_dtype=torch.float16
-).to("cuda")
-
-pipe.unet.load_attn_procs(str(model_output_dir))
-pipe.safety_checker = None
-pipe.feature_extractor = None
-
-for i in range(NUM_GENERATED_IMAGES):
-    generator = torch.Generator(device="cuda").manual_seed(SEED + i)
-    image = pipe(
-        GENERATION_PROMPT,
-        num_inference_steps=NUM_INFERENCE_STEPS,
-        guidance_scale=GUIDANCE_SCALE,
-        generator=generator
-    ).images[0]
-
-    out_path = images_output_dir / f"{i}.png"
-    image.save(out_path)
-    print(f"saved {out_path}")
-
-for seed in range(1, 11):
-    generator = torch.Generator(device="cuda").manual_seed(seed)
-    image = pipe(
-        GENERATION_PROMPT,
-        num_inference_steps=NUM_INFERENCE_STEPS,
-        guidance_scale=GUIDANCE_SCALE,
-        generator=generator
-    ).images[0]
-
-    out_path = images_output_dir / f"seed_{seed}.png"
-    image.save(out_path)
-    print(f"saved {out_path}")
-
-del pipe
-torch.cuda.empty_cache()
-
-print()
-print("=" * 70)
-print(f"EXPERIMENT COMPLETE — {experiment_name}")
-print("=" * 70)

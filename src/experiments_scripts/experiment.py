@@ -33,7 +33,7 @@ GENERATION_PROMPT = "cat"
 NUM_INFERENCE_STEPS = 30
 GUIDANCE_SCALE = 7.5
 
-WATERMARK_ALGORITHM_NAME = "DWT-DCT"
+WATERMARK_ALGORITHM_NAME = "shift_rg"
 BASE_MODEL_DIR = project_root / "models" / "stable-diffusion-v1-5"
 INPUT_DATA_DIR = project_root / "data" / "base_data_processed"
 
@@ -91,13 +91,51 @@ print("=" * 70)
 
 wm = load_watermark_module()
 
-wm.embed_dataset(
-    input_dir=INPUT_DATA_DIR,
-    output_dir=watermarked_data_dir,
-    alpha=ALPHA,
-    poison_ratio=POISON_RATIO,
-    seed=SEED,
+source_files = sorted(
+    list(INPUT_DATA_DIR.glob("*.png")) +
+    list(INPUT_DATA_DIR.glob("*.jpg")) +
+    list(INPUT_DATA_DIR.glob("*.jpeg"))
 )
+
+skipped = 0
+to_process = []
+
+for img_path in source_files:
+    out_path = watermarked_data_dir / img_path.name
+    if out_path.exists():
+        skipped += 1
+    else:
+        to_process.append(img_path)
+
+print(f"total images     : {len(source_files)}")
+print(f"already done     : {skipped}")
+print(f"remaining        : {len(to_process)}")
+print()
+
+if not to_process:
+    print("all images already watermarked, skipping step 1")
+else:
+    random.seed(SEED)
+    all_names = [f.name for f in source_files]
+    num_to_poison = int(len(source_files) * POISON_RATIO)
+    poisoned_set = set(random.sample(all_names, num_to_poison))
+
+    poisoned_count = 0
+    clean_count = 0
+
+    for img_path in to_process:
+        image = Image.open(img_path).convert("RGB")
+        out_path = watermarked_data_dir / img_path.name
+        if img_path.name in poisoned_set:
+            watermarked = wm.embed_watermark(image)
+            watermarked.save(out_path)
+            poisoned_count += 1
+            print(f"poisoned {poisoned_count} — {img_path.name}")
+        else:
+            image.save(out_path)
+            clean_count += 1
+
+    print(f"\ndone — poisoned: {poisoned_count}, clean: {clean_count}")
 
 print()
 

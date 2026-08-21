@@ -57,17 +57,38 @@ Next method according to the literature the Adversarial perturbation against the
 but a HUGE SUCCESS! After poisoning the entire dataset there are very clear and visible squares/checkerboard pattern over all images.
 
 adversarial          |     29.427     0.8776 |     0.2207         0.441
-
+(adv.png)
 interestingly this is the first time SSIM falls down, PSNR also does but not too much almost still beeing 30. 
 
 upon close inspection you indeed can see the watermark, it kinda looks like pictures had worse quality, but you deffinetly can't see the checkered pattern. Also on some pictures that are already not the best quality, or more surreal or just with more stuff it is much harder to see the differences. on the other hand, on the images with hings like clear sky unfortunatly watermark is quite visible.
 
 poisoning though verry effective with the highest scores in both metrics yet
 
+now time for testing with the % of poisoned data, we will try 75%, 50%, 25% and 10%
 
 
+adversarial_a5.0_p0.1 |     29.652     0.8922 |     0.1393        0.5503
+adversarial_a5.0_p0.25 |      29.51     0.8819 |     0.1765        0.5083
+adversarial_a5.0_p0.5 |     29.429     0.8792 |     0.3107        0.4279
+adversarial_a5.0_p0.75 |     29.432     0.8786 |     0.2322        0.4553
+adversarial          |     29.427     0.8776 |     0.2207         0.441
+
+(adv_0.1.png and so on)
+
+p0.5 produced stronger deterioration than p0.75 and p1.0, which is counterintuitive. The explanation is likely that at 50% poisoning the model is being pulled in two competing directions simultaneously — half the images push the latent toward the adversarial target, and half pull it back toward the natural distribution. This tension during training may actually cause more disruption to the adapter weights than a fully poisoned dataset where the signal is consistent and the model can adapt to it more stably. At 100% poisoning the model just learns the adversarial distribution as its new normal, whereas at 50% it is constantly confused between two conflicting signals.
+
+it is kinda weird because it is very visible that 100% and 75% have this square-like pattern and 50% has a slightly different pattern, more swirly-like, but the images themselves are much more deteriorated with figures not resembling a human or a cat. explanation
+
+suprisingly even on the 0.1 the images were poisoned, we could see on most of them some artifacts that should not be there, and on some it still managed to produce an unrecognisable result, proving that the paper was tisht that small amount of poisoned data is needed to destroy the model.
+
+At 10% and 25% the signal is too diluted to cause strong deterioration
+At 50% the competing signals between poisoned and clean images create maximum confusion in the adapter weights
+At 75% and 100% the model starts adapting to the poisoned distribution as its new normal, reducing the apparent deterioration relative to the clean baseline
+
+also to adress scores from group 1, they might look weird, but once you uderstand that all metrics from group 1 are calculated only on poiosoned images it is clear why they are practically the same
 
 
+sidenote add somewhere that when i do experiments with like poisoning % of the data we leave calculating of the results in group 1 only on the actually poisoned data
 
 
 Compare my van gogh with other models:

@@ -51,16 +51,23 @@ def compute_watermark_visibility(watermarked_dir, original_dir):
     watermarked_dir = Path(watermarked_dir)
     original_dir = Path(original_dir)
 
-    watermarked_files = sorted(
-        list(watermarked_dir.glob("*.png")) +
-        list(watermarked_dir.glob("*.jpg")) +
-        list(watermarked_dir.glob("*.jpeg"))
-    )
+    manifest_path = watermarked_dir / "manifest.json"
+    if manifest_path.exists():
+        with open(manifest_path) as f:
+            manifest = json.load(f)
+        files_to_compare = [watermarked_dir / name for name in manifest["poisoned"]]
+        print(f"  using manifest: comparing {len(files_to_compare)} poisoned images only")
+    else:
+        files_to_compare = sorted(
+            list(watermarked_dir.glob("*.png")) +
+            list(watermarked_dir.glob("*.jpg")) +
+            list(watermarked_dir.glob("*.jpeg"))
+        )
 
     psnr_scores = []
     ssim_scores = []
 
-    for wm_path in watermarked_files:
+    for wm_path in files_to_compare:
         orig_path = original_dir / wm_path.name
         if not orig_path.exists():
             continue

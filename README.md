@@ -13,19 +13,19 @@ The most important finding of this thesis is that the adversarial perturbation m
 This method allows a watermark to be embedded into training images while remaining almost invisible to the human eye.
 
 <p align="center">
-  <img src="adversarial_training_comparison.png" width="90%">
+  <img src="adversarial_training_comparison.jpg" width="90%">
 </p>
 
 The watermark was then used to poison the training dataset, causing a significant deterioration in the generated images. The model changed from:
 
 <p align="center">
-  <img src="clean_model.png" width="45%">
+  <img src="clean_model.jpg" width="45%">
 </p>
 
 to:
 
 <p align="center">
-  <img src="adversarial_model.png" width="45%">
+  <img src="adversarial_model.jpg" width="45%">
 </p>
 
 **Link to the thesis paper:**  

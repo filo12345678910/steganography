@@ -27,6 +27,3 @@ to:
 <p align="center">
   <img src="adversarial_model.jpg" width="45%">
 </p>
-
-**Link to the thesis paper:**  
-[Master Thesis PDF](https://www.overleaf.com/read/fzcmhkzpfdrv#24a2d3)

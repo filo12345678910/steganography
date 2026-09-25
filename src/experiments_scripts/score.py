@@ -10,7 +10,7 @@ from skimage.metrics import peak_signal_noise_ratio as psnr
 project_root = Path(__file__).resolve().parent.parent.parent
 
 poisoned_images_dir = project_root / "experiments"
-clean_images_dir = project_root / "model_results" / "seeded_images_best_model"
+clean_images_dir = project_root / "experiments" / "empty_a5.0_p1.0__e3_r64_la32_lr5e-05_ga4_attn+ff+conv_seed42" / "images"
 original_data_dir = project_root / "data" / "base_data_processed"
 output_path = project_root / "experiments" / "comparison_scores.json"
 

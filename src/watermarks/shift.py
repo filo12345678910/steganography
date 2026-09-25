@@ -3,20 +3,16 @@ from pathlib import Path
 from PIL import Image
 import random
 
-
-CHANNEL = 1
 SHIFT = 20
-
 
 def embed_watermark(image, watermark=None, alpha=None):
     arr = np.array(image, dtype=np.int16)
-    arr[:, :, CHANNEL] = np.clip(arr[:, :, CHANNEL] + SHIFT, 0, 255)
+    arr[:, :, 1] = np.clip(arr[:, :, 1] + SHIFT, 0, 255)
+    arr[:, :, 0] = np.clip(arr[:, :, 0] - SHIFT, 0, 255)
     return Image.fromarray(arr.astype(np.uint8))
-
 
 def extract_watermark(image, num_bits=None):
     return np.array([1])
-
 
 def embed_dataset(input_dir, output_dir, watermark=None, alpha=None, poison_ratio=1.0, seed=42):
     input_dir = Path(input_dir)
@@ -58,12 +54,10 @@ def embed_dataset(input_dir, output_dir, watermark=None, alpha=None, poison_rati
     print(f"\ndone — poisoned: {poisoned_count}, clean: {clean_count}")
     print(f"output: {output_dir}")
 
-
 if __name__ == "__main__":
     project_root = Path(__file__).resolve().parent.parent.parent
-
     input_dir = project_root / "data" / "base_data_processed"
-    output_dir = project_root / "data" / "colour-shift"
+    output_dir = project_root / "data" / "colour-shift-rg"
 
     embed_dataset(
         input_dir=input_dir,

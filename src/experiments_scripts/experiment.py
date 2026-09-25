@@ -33,7 +33,7 @@ GENERATION_PROMPT = "cat"
 NUM_INFERENCE_STEPS = 30
 GUIDANCE_SCALE = 7.5
 
-WATERMARK_ALGORITHM_NAME = "adversarial"
+WATERMARK_ALGORITHM_NAME = "shift"
 BASE_MODEL_DIR = project_root / "models" / "stable-diffusion-v1-5"
 INPUT_DATA_DIR = project_root / "data" / "base_data_processed"
 
